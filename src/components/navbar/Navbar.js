@@ -11,7 +11,7 @@ export default function Navbar(props) {
       <nav className="nav-items">
         {props.items.map(item => {
           return (
-            <a key={item.section} href="/" onClick={handleClick} tabIndex={0}>
+            <a key={item.section} className="navbar-link" href="/" onClick={handleClick} tabIndex={0}>
               {item.label}
             </a>
           );

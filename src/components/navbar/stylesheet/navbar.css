@@ -2,6 +2,42 @@
   margin: 20px;
 }
 
+.navbar .bottom-border {
+  height: 1px;
+  background: rgb(221, 220, 220);
+  position: relative;
+  top: 10px;
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.navbar-link:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  top: 22px;
+  background: black;
+  z-index: 1;
+  transition: width 0.2s linear;
+  -webkit-transition: width 0.2s linear;
+}
+
+.navbar-link:focus:after {
+  width: 100%;
+  left: 0;
+  background: black;
+}
+
 .navbar a {
   position: relative;
   text-decoration: none;
@@ -16,51 +52,31 @@
   color: rgb(27, 169, 204);
 }
 
-.navbar a:target ~ .bottom-border {
-  width: 20px;
-  background: black;
-}
-
-.navbar .bottom-border {
-  height: 1px;
-  background: rgb(167, 167, 167);
-  position: relative;
-  top: 10px;
-  transition: 0.5s ease;
-  -webkit-transition: 0.5s ease;
-}
-
-.nav-items {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-}
-
 .navbar a:before {
-    width: 30px;
-    height: 30px;
-    content: "";
-    border: 1px solid black;
-    border-radius: 50%;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    transform: scale(0.001, 0.001);
-    -webkit-transform: scale(0.001, 0.001);
+  width: 30px;
+  height: 30px;
+  content: "";
+  border: 1px solid black;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform: scale(0.001, 0.001);
+  -webkit-transform: scale(0.001, 0.001);
 }
 
 .navbar a:focus {
-    outline: 0;
-    color: black;
-    font-weight: 300;
-  }
+  outline: 0;
+  color: black;
+  font-weight: 400;
+}
 
 .navbar a:focus:before {
-    animation: rounded_circle 0.4s ease-out;
-    -webkit-animation: rounded_circle 0.4s ease-out;
-  }
+  animation: rounded_circle 0.4s ease-out;
+  -webkit-animation: rounded_circle 0.4s ease-out;
+}
 
 @keyframes rounded_circle {
   50% {
