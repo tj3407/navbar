@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
 
-export default function Navbar() {
-    return (
-        <div>
-            
-        </div>
-    )
+export default function Navbar(props) {
+  return (
+    <div>
+      {props.items.map(item => {
+        return (
+          <a key={item.section} href="/">
+            {item.label}
+          </a>
+        );
+      })}
+    </div>
+  );
 }

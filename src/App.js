@@ -6,10 +6,16 @@ import "./App.css";
 var navbarLinks = require("./metadata/navigation.json");
 
 function App() {
+  const [items, setItems] = React.useState([]);
+
+  React.useEffect(() => {
+    setItems(navbarLinks.cities);
+  }, [])
+
   return (
     <div className="App">
       <Header />
-      <Navbar items={navbarLinks} />
+      <Navbar items={items} />
     </div>
   );
 }
