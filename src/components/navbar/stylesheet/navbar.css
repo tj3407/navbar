@@ -1,24 +1,80 @@
 .navbar {
-    margin: 20px;
+  margin: 20px;
 }
 
 .navbar a {
-    text-decoration: none;
-    color: gray;
-    font-weight: 100;
-    font-size: .9rem;
+  position: relative;
+  text-decoration: none;
+  color: gray;
+  font-weight: 100;
+  font-size: 0.9rem;
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
 }
 
 .navbar a:hover {
-    color: rgb(27, 169, 204);
+  color: rgb(27, 169, 204);
 }
 
-.navbar hr {
-    border-width: .6px;
+.navbar a:target ~ .bottom-border {
+  width: 20px;
+  background: black;
+}
+
+.navbar .bottom-border {
+  height: 1px;
+  background: rgb(167, 167, 167);
+  position: relative;
+  top: 10px;
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
 }
 
 .nav-items {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.navbar a:before {
+    width: 30px;
+    height: 30px;
+    content: "";
+    border: 1px solid black;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: scale(0.001, 0.001);
+    -webkit-transform: scale(0.001, 0.001);
+}
+
+.navbar a:focus {
+    outline: 0;
+    color: black;
+    font-weight: 300;
+  }
+
+.navbar a:focus:before {
+    animation: rounded_circle 0.4s ease-out;
+    -webkit-animation: rounded_circle 0.4s ease-out;
+  }
+
+@keyframes rounded_circle {
+  50% {
+    transform: scale(2, 2);
+    -webkit-transform: scale(2, 2);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(0.001, 0.001);
+    -webkit-transform: scale(0.001, 0.001);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.001, 0.001);
+    opacity: 2;
+  }
 }
