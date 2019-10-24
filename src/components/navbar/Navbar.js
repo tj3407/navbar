@@ -18,9 +18,7 @@ export default function Navbar(props) {
 
     if (!parentNode.classList.contains("active")) {
       for (let i = 0; i < nodes.length; i++) {
-        console.log(nodes[i].parentNode)
         if (nodes[i].classList.contains("active")) {
-          console.log('removing')
           nodes[i].classList.remove("active");
         }
       }
@@ -28,7 +26,7 @@ export default function Navbar(props) {
       parentNode.classList.add("active");
       
       const width = e.target.getBoundingClientRect().width;
-      const height = e.target.getBoundingClientRect().height;
+      const height = e.target.getBoundingClientRect().height + .5;
       const left = e.target.getBoundingClientRect().left;
       const top = e.target.getBoundingClientRect().top;
       const color = "black";
@@ -59,6 +57,7 @@ export default function Navbar(props) {
         </ul>
       </nav>
       <span className="bottom-border" />
+      <div className="bottom-border-second" />
     </div>
   );
 }
