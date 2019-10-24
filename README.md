@@ -1,3 +1,7 @@
+Navigation bar with sliding effect on click.
+
+- automatically updates position and width to match selected link text
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

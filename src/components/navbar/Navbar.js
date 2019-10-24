@@ -5,13 +5,14 @@ export default function Navbar(props) {
   const [target, setTarget] = React.useState({});
   const [links, setLinks] = React.useState({});
 
+  // Retrieve the node element for the bottom border and nodes of the navbar links
   React.useEffect(() => {
     setTarget(document.querySelector(".bottom-border"));
     let items = document.querySelectorAll(".nav-items ul");
     setLinks(items[0].childNodes);
-  }, [])
+  }, []);
 
-  const handleClick = (e) => {
+  const handleClick = e => {
     e.preventDefault();
     const parentNode = e.target.parentNode;
     let nodes = Array.from(links);
@@ -22,15 +23,17 @@ export default function Navbar(props) {
           nodes[i].classList.remove("active");
         }
       }
-      
+      // add active class to clicked element
       parentNode.classList.add("active");
-      
+
+      // calculate position of clicked element
       const width = e.target.getBoundingClientRect().width;
-      const height = e.target.getBoundingClientRect().height + .5;
+      const height = e.target.getBoundingClientRect().height + 0.5;
       const left = e.target.getBoundingClientRect().left;
       const top = e.target.getBoundingClientRect().top;
       const color = "black";
-    
+
+      // add style to the bottom border for the sliding effect
       target.style.width = `${width}px`;
       target.style.height = `${height}px`;
       target.style.left = `${left}px`;
@@ -39,7 +42,7 @@ export default function Navbar(props) {
       target.style.transform = "none";
       target.style.paddingTop = "10px";
     }
-  }
+  };
 
   return (
     <div className="navbar">
