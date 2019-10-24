@@ -1,0 +1,24 @@
+.navbar {
+    margin: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: gray;
+    font-weight: 100;
+    font-size: .9rem;
+}
+
+.navbar a:hover {
+    color: rgb(27, 169, 204);
+}
+
+.navbar hr {
+    border-width: .6px;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
