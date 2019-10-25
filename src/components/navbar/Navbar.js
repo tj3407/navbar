@@ -12,7 +12,7 @@ export default function Navbar(props) {
     setLinks(items[0].childNodes);
   }, []);
 
-  const handleClick = e => {
+  const handleClick = (e, val) => {
     e.preventDefault();
     const parentNode = e.target.parentNode;
     let nodes = Array.from(links);
@@ -42,6 +42,10 @@ export default function Navbar(props) {
       target.style.transform = "none";
       target.style.paddingTop = "10px";
     }
+
+    if (props.onClick) {
+      props.onClick(val);
+    }
   };
 
   return (
@@ -51,7 +55,7 @@ export default function Navbar(props) {
           {props.items.map(item => {
             return (
               <li key={item.section}>
-                <a href="/" onClick={handleClick} tabIndex={0}>
+                <a href="/" onClick={(e) => handleClick(e, item.section)} tabIndex={0}>
                   {item.label}
                 </a>
               </li>
